@@ -21,6 +21,19 @@ img {
   border-radius: 50%;
 }
 
+.thumbnail {
+  position: relative;
+}
+
+.caption {
+  background: aqua;
+  position: absolute;
+  top: 72%;
+  left: 45%;
+  border-radius: 8%;
+  /* width: 100%; */
+}
+
 /* $color1: rgba(233, 215, 88, 1);
 $color2: rgba(41, 115, 115, 1);
 $color3: rgba(255, 133, 82, 1);

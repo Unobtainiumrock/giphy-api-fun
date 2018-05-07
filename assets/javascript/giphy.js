@@ -62,23 +62,20 @@ $(document).ready(function() {
       method: 'GET',
     }).then(function(response) {
       var responseArray = response.data;
-
-      // Loop over the 10 responses from the response array, and append a still-giphy to the giphy-holder
+      // Loop over the 10 responses from the response array, and prepend a still-giphy to the giphy-holder
       responseArray.forEach(function(response) {
-
-        // Create the properties for each image
-        var id = response.id;
-        var still = response.images.fixed_height_still.url
-        var animated = response.images.fixed_height.url
-        var img = $(`<img src="${still}" data-still="${still}" data-animate="${animated}" data-state="still" class="gif" height=200 width=250>`);
-        // Append each image with their properties to the gipy-holder
-        $('#giphy-holder').prepend(img);
+        $('#giphy-holder').prepend(giphyCreator(response));
       })
     })
 
   })
 
   // FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS 
+  /**
+   * Creates a button with a data-term equal to the user input and appends it to the button-holder.
+   * The data-term is referenced for AJAX calls, when a user clicks the created button 
+   * @param  {string} topic: is the information the user submits in the create giphy form
+   */
   function buttonCreator(topic) {
     var newButton = $(`<button type="button" class="btn btn-dark"></button>`);
     // Add text
@@ -91,6 +88,27 @@ $(document).ready(function() {
     // Append newly created button to the button holder
     $('#button-holder').append($(newButton));
   }
-
+  
+  /**
+   * @param  {Object} response: is the response object return by the AJAX call to the giphy API
+   * @returns a div that contains the img and caption overlay information
+   */
+  function giphyCreator(response) {
+    // Create the container for images to have thumbnails
+    var thumbNail = $('<div class="thumbnail text-center"></div>');
+    // Create the properties for each image
+    var id = response.id;
+    var still = response.images.fixed_height_still.url
+    var animated = response.images.fixed_height.url
+    var img = $(`<img src="${still}" data-still="${still}" data-animate="${animated}" data-state="still" class="gif" height=200 width=250>`);
+    var rating = response.rating; 
+    // Create the caption
+    var caption = $(`<div class="caption"><p>Rated: ${rating}</p></div>`)
+    // Append the image to the container
+    thumbNail.append(img);
+    // Append the caption to the container
+    thumbNail.append(caption);
+    return thumbNail;
+  }
 
 })
