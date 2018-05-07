@@ -13,19 +13,10 @@ $(document).ready(function() {
 
   // Event listener for changing from a still giphy to an animated gipy
     $(document).on('click','.gif',function() {
-      var state = $(this).attr('data-state');
- 
-      if(state === 'still') {
-        var animateUrl = $(this).attr('data-animate');
-        $(this).attr('src',animateUrl);
-        $(this).attr('data-state','animate');
-      }
-
-      if(state === 'animate') {
-        var stillUrl = $(this).attr('data-still');
-        $(this).attr('src',stillUrl);
-        $(this).attr('data-state','still');
-      }
+      // Save reference to 'this'
+      var that = $(this);
+      
+      toggleGiphy(that);
     })
 
   // Event Listener for input form to create new buttons
@@ -88,7 +79,7 @@ $(document).ready(function() {
     // Append newly created button to the button holder
     $('#button-holder').append($(newButton));
   }
-  
+
   /**
    * @param  {Object} response: is the response object return by the AJAX call to the giphy API
    * @returns a div that contains the img and caption overlay information
@@ -109,6 +100,25 @@ $(document).ready(function() {
     // Append the caption to the container
     thumbNail.append(caption);
     return thumbNail;
+  }
+  /**
+   * @param  {Object} that: is a saved reference of $(this). The object is the clicked DOM element
+   */
+  function toggleGiphy(that) {
+    console.log(typeof that);
+    var state = that.attr('data-state');
+ 
+    if(state === 'still') {
+      var animateUrl = that.attr('data-animate');
+      that.attr('src',animateUrl);
+      that.attr('data-state','animate');
+    }
+
+    if(state === 'animate') {
+      var stillUrl = that.attr('data-still');
+      that.attr('src',stillUrl);
+      that.attr('data-state','still');
+    }
   }
 
 })
