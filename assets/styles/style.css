@@ -5,6 +5,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-image: linear-gradient(87deg,rgba(41, 115, 115, 1) 0,rgba(57, 57, 58, 1) 100%); 
+  padding-top: 65px; 
 }
 
 nav {
@@ -12,6 +13,13 @@ nav {
   border-radius: 1%;
 }
 
+.gif {
+  margin: 8px;
+}
+
+img {
+  border-radius: 50%;
+}
 
 /* $color1: rgba(233, 215, 88, 1);
 $color2: rgba(41, 115, 115, 1);
