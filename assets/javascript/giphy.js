@@ -17,6 +17,7 @@ $(document).ready(function() {
       var that = $(this);
       
       toggleGiphy(that);
+      moveGiphy(that);
     })
 
   // Event Listener for input form to create new buttons
@@ -26,6 +27,9 @@ $(document).ready(function() {
     // Storing the giphy name
     var giphy = $("#giphy-input").val().trim();
     // Create button with the provided value,
+    // if(giphy.length === 0) {
+    //   $('#select-giphy').effect('shake');
+    // }
     buttonCreator(giphy);
   });
 
@@ -45,7 +49,7 @@ $(document).ready(function() {
       'limit': 10,
       'rating': 'g'
     })
-
+    console.log(url);
     // AJAX request w/ syntactic sugar on the url line. url: url becomes just url.
     //  This is allowed when the key and value share the same name
     $.ajax({
@@ -86,7 +90,7 @@ $(document).ready(function() {
    */
   function giphyCreator(response) {
     // Create the container for images to have thumbnails
-    var thumbNail = $('<div class="thumbnail text-center"></div>');
+    var thumbNail = $('<div class="thumbnail text-center listens-to-parent"></div>');
     // Create the properties for each image
     var id = response.id;
     var still = response.images.fixed_height_still.url
@@ -119,6 +123,11 @@ $(document).ready(function() {
       that.attr('src',stillUrl);
       that.attr('data-state','still');
     }
+  }
+
+  function moveGiphy(that) {
+    $('#stage').html(that.parent());
+    // that.parent().remove();
   }
 
 })
