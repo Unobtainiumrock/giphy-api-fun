@@ -9,7 +9,6 @@ $(document).ready(function() {
     buttonCreator(topic);
   })
 
-
   // EVENT LISTENERS EVENT LISTENERS EVENT LISTENERS EVENT LISTENERS EVENT LISTENERS EVENT LISTENERS EVENT LISTENERS
 
   // Event listener for changing from a still giphy to an animated gipy
@@ -40,7 +39,7 @@ $(document).ready(function() {
   });
 
 
-  // Event listener for buttons to make an AJAX call to the Giphy API to fetch the corresponding giphys
+  // Event listener for giphys to make an AJAX call to the Giphy API and fetch the corresponding giphys
   $(document).on('click','.btn',function() {
 
     // Create information to make requests to Giphy API
@@ -56,14 +55,15 @@ $(document).ready(function() {
       'rating': 'g'
     })
 
-    // AJAX request w/ syntactic sugar on the url line. url: url 
+    // AJAX request w/ syntactic sugar on the url line. url: url becomes just url.
+    //  This is allowed when the key and value share the same name
     $.ajax({
       url,
       method: 'GET',
     }).then(function(response) {
       var responseArray = response.data;
 
-      // Loop over the 10 responses fromt the response array, and append a still-giphy to the giphy-holder
+      // Loop over the 10 responses from the response array, and append a still-giphy to the giphy-holder
       responseArray.forEach(function(response) {
 
         // Create the properties for each image
