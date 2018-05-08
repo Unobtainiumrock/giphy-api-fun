@@ -1,6 +1,8 @@
 # Fun With Giphys
 
-Screwing around with Giphy API
+Screwing around with Giphy API. You can click the existing buttons to add 10 giphys per ajax call
+to the Giphy API. You can also dynamically add buttons by using the form on the right column
+-those new buttons can then add your preferred giphys.
 
 ## Getting Started
 
@@ -15,6 +17,7 @@ Hosted on [GitHub pages](https://unobtainiumrock.github.io/giphy-api-fun/).
 * [Javascript](https://eloquentjavascript.net/)
 * [CSS](https://css-tricks.com/)
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [GIPHY API](https://developers.giphy.com/docs/) 
 
 
 ## Authors
