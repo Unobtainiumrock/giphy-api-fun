@@ -1,8 +1,5 @@
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background-image: linear-gradient(87deg,rgba(41, 115, 115, 1) 0,rgba(57, 57, 58, 1) 100%); 
   padding-top: 65px; 
@@ -21,16 +18,34 @@ img {
   border-radius: 50%;
 }
 
+.btn {
+  margin: 8px;
+}
+
 .thumbnail {
   position: relative;
 }
 
 .caption {
-  background: aqua;
-  position: absolute;
-  top: 72%;
-  left: 45%;
+  background: rgba(57, 57, 58, 1);
+  position: relative;
+  color: rgba(230, 230, 230, 1);
+  bottom: 4em;
+  left: 20%;
   border-radius: 8%;
+  width: 65%;
+}
+
+.listens-to-parent {
+  width: 250px;
+  float: left;
+  margin: 8px;
+}
+
+.fixed-right {
+  position: fixed;
+  right: 0;
+  background: rgba(233, 215, 88, 1)
 }
 
 /* $color1: rgba(233, 215, 88, 1);
