@@ -104,6 +104,7 @@ $(document).ready(function() {
     var still = response.images.fixed_height_still.url
     var animated = response.images.fixed_height.url
     var img = $(`<img src="${still}" data-still="${still}" data-animate="${animated}" data-state="still" class="gif" height=200 width=250>`);
+    img.attr('id','img-circle');
     var rating = response.rating; 
     // Create the caption
     var caption = $(`<div class="caption"><p>Rated: ${rating}</p></div>`)
@@ -134,6 +135,11 @@ $(document).ready(function() {
   }
 
   function moveGiphy(that) {
+    // Removes circle 
+    that.attr('id','');
+    // Removes thumbnail
+    $(that.parent().children()[1]).remove();
+    // Adds to stage
     $('#stage').html(that.parent());
   }
 
