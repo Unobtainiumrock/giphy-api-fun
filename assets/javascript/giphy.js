@@ -16,7 +16,9 @@ $(document).ready(function() {
       // Save reference to 'this'
       var that = $(this);
       
+      // Animates giphy
       toggleGiphy(that);
+      // Moves giphy to staging area
       moveGiphy(that);
     })
 
@@ -26,11 +28,17 @@ $(document).ready(function() {
     event.preventDefault();
     // Storing the giphy name
     var giphy = $("#giphy-input").val().trim();
-    // Create button with the provided value,
-    // if(giphy.length === 0) {
-    //   $('#select-giphy').effect('shake');
-    // }
-    buttonCreator(giphy);
+    
+    // Only create a button if there's a topic provided
+    if(giphy.length === 0) {
+      $('#giphy-input').attr('value','NO BLANK BUTTONS!');
+      $('#giphy-input').animateCss('shake',function() {
+        $('#giphy-input').attr('value','');
+      });
+    } else {
+      // Create button with the provided value,
+      buttonCreator(giphy);
+    }
   });
 
 
@@ -127,7 +135,6 @@ $(document).ready(function() {
 
   function moveGiphy(that) {
     $('#stage').html(that.parent());
-    // that.parent().remove();
   }
 
 })
