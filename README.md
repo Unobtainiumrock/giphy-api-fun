@@ -5,7 +5,8 @@ Screwing around with Giphy API
 ## Getting Started
 
 Hosted on [GitHub pages](https://unobtainiumrock.github.io/giphy-api-fun/).
-![Fun With Giphys](./assets/images/{put screenshot of app here}.png "Fun With Giphys")
+![Fun With Giphys](./assets/images/giphy-api.png "Fun With Giphys")
+
 
 ## Built With
 
