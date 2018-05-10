@@ -143,4 +143,6 @@ $(document).ready(function() {
     $('#stage').html(that.parent());
   }
 
+  console.log();
+
 })
